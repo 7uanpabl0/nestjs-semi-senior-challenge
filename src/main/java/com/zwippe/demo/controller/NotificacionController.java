@@ -26,7 +26,7 @@ public class NotificacionController {
 
     @PostMapping("/login")
     public ResponseEntity<Void> login(@RequestBody LoginEvent evento) {
-        producer.enviarEvento(evento);
+        producer.enviarLogin(evento);
         return ResponseEntity.ok().build();
     }
 

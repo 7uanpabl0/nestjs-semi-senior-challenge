@@ -1,5 +1,6 @@
 package com.zwippe.demo.kafka;
 
+import com.zwippe.demo.event.LoginEvent;
 import com.zwippe.demo.event.NotificacionEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -13,5 +14,9 @@ public class NotificacionProducer {
 
     public void enviarEvento(NotificacionEvent evento) {
         kafkaTemplate.send("notificaciones-topic", evento.getTipo(), evento);
+    }
+
+    public void enviarLogin(LoginEvent evento) {
+        kafkaTemplate.send("Login-topic", evento);
     }
 }

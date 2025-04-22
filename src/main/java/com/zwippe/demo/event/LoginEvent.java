@@ -1,15 +1,27 @@
 package com.zwippe.demo.event;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
-public record LoginEvent(UUID usuarioId, String ip) implements NotificacionEvent {
-    @Override public String getTipo() {
-        return "LOGIN";
-    }
+@Data
+public class LoginEvent {
 
-    @Override
-    public UUID getUsuarioId() {
-        return null;
+    private final UUID usuarioId;
+    private final String ip;
+    private final LocalDateTime fecha;
+
+    @JsonCreator
+    public LoginEvent(
+            @JsonProperty("usuarioId") UUID usuarioId,
+            @JsonProperty("ip") String ip,
+            @JsonProperty("fecha") LocalDateTime fecha
+    ) {
+        this.usuarioId = usuarioId;
+        this.ip = ip;
+        this.fecha = fecha;
     }
 }
