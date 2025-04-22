@@ -56,7 +56,7 @@ private void manejarTransaccion(TransaccionEvent evento) {
     n.setFecha(LocalDateTime.now());
     repository.save(n);
     log.info("💰 Transacción procesada: {}", evento);
-    enviarCorreoConPlantilla(String.valueOf(n.getUsuarioId()),n.getTipo());
+    //enviarCorreoConPlantilla(String.valueOf(n.getUsuarioId()),n.getTipo());
 }
 
 private void manejarLogin(LoginEvent evento) {
@@ -67,7 +67,7 @@ private void manejarLogin(LoginEvent evento) {
         n.setFecha(LocalDateTime.now());
         repository.save(n);
         log.info("🔐 Login procesado: {}", evento);
-        enviarCorreoConPlantilla(String.valueOf(n.getUsuarioId()),n.getTipo());
+    //    enviarCorreoConPlantilla(String.valueOf(n.getUsuarioId()),n.getTipo());
     }
 
     private void manejarCodigo(SeguridadEvent evento) {
